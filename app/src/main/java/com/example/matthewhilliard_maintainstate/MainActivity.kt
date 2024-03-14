@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.edittext)
         val imageView = findViewById<ImageView>(R.id.imageView)
 
-
         button.setOnClickListener(){
             val randomPicture = images[Random.nextInt(images.size)]
             imageView.setImageResource(randomPicture)
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        Log.d("On destory called", "On destroy called")
         super.onDestroy()
         editor.putString("text", findViewById<EditText>(R.id.edittext).text.toString())
         editor.apply()
