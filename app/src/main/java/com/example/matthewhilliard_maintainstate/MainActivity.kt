@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import kotlin.random.Random
 
 
@@ -31,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             val randomPicture = images[Random.nextInt(images.size)]
             imageView.setImageResource(randomPicture)
             editor.putInt("image", randomPicture)
+            editor.apply()
+        }
+
+        editText.addTextChangedListener {
+            editor.putString("text", it.toString())
             editor.apply()
         }
 
